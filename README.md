@@ -16,7 +16,7 @@ Select all entities in model space, return their ObjectId and generic properties
 
     var entities = db("model");
 
-Select all lines, with its most used properties in JavaScript object:
+Select all lines, with their most used properties in a JavaScript array object:
 
     var lines = db("line");
 
