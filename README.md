@@ -1,7 +1,7 @@
 CADapi.js : JavaScript APIs for CAD
 ==========
 
-Develop CAD software in JavaScript, with different APIs from Autodesk® AutoCAD® JavaScript API. CADapi.js for CAD makes JavaScript in AutoCAD® (version 2010 to recent 2015), BricsCAD®, ZWCAD++ as easy to use as possible.
+Develop CAD software in JavaScript, with different APIs from Autodesk® AutoCAD® JavaScript API. CADapi.js makes JavaScript in AutoCAD® (version 2010 to recent 2015), BricsCAD®, ZWCAD++ as easy to use as possible.
 
 JavaScript APIs for CAD should come with .NETScript which is downloadable at www.NetOnApp.com
 
