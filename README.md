@@ -12,7 +12,11 @@ Select all layers in the current AutoCAD/BricsCAD/ZWCAD++ database:
 
     var layers = db("layer");
 
-Select all lines:
+Select all entities in model space, return their ObjectId and generic properties (layer name, color...):
+
+    var entities = db("model");
+
+Select all lines, with its most used properties in JavaScript object:
 
     var lines = db("line");
 
