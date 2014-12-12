@@ -28,6 +28,17 @@ Update layer name of all blocks:
 
     db("block").update("layer", "0");
 
+Get drawing variables:
+
+    db("variable"); // Get all drawing variables
+    db("variable['clayer']"); // Get current layer name
+
+Set drawing variables:
+
+    // Set current layer to layer 0
+    db("variable").update("clayer", "0"); // Option 1
+    db("variable['clayer']") = "0";       // Option 2
+
 Run AutoCAD command:
 
     db().runCommand("LINE");
@@ -35,7 +46,7 @@ Run AutoCAD command:
 Zoom extents:
 
     db().zoomExtents();
-
+    
 Register an event handler:
 
     db().addEvent("commandEnded", function () {
