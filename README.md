@@ -1,20 +1,51 @@
 CADapi.js : JavaScript APIs for CAD
 ==========
 
-Develop CAD software in JavaScript. CADapi.js makes JavaScript in AutoCAD® (version 2010 to recent 2016), BricsCAD®, ZWCAD++, Autodesk® Revit® and Inventor® as easy to use as possible. Make different CAD software to use the same APIs.
+Develop CAD software in JavaScript. CADapi.js makes JavaScript in AutoCAD® (version 2010 to recent 2016), BricsCAD®, ZWCAD, Autodesk® Revit® and Inventor® as easy to use as possible. Make different CAD software to use the same APIs.
 
 JavaScript APIs for CAD should come with .NETScript which is downloadable at www.NetOnApp.com
 
 
 **Documentation**
 
-All the CADapi.js commands should start with $$$. The reason is $ is used by jQuery and $$ is used by the web browsers (IE, Chrome, Firefox...).
+All the CADapi.js commands starts with $$$. The reason is $ is used by jQuery and $$ is used by the web browsers (IE, Chrome, Firefox...). CADapi.js works together with all JavaScript libraries inside its web browser as the NetOnApp .NETScript plugin.
 
-Select all entities in the model, return their ObjectId and generic properties (layer name, color...):
+*Generic APIs across AutoCAD/BricsCAD/ZWCAD, Revit and Inventor:*
+
+Select all entities in the model, return their Id and generic properties (layer name, color...):
 
     var entities = $$$("model");
 
-Select all layers in the current AutoCAD/BricsCAD/ZWCAD++ database:
+Get all properties of an entity with its Id:
+
+    var data = $$$(id); // id is handle ID (AutoCAD) or number ID (Revit)
+    
+Select an entity on the screen:
+
+    $$$().select(id);
+
+Update an entity with its id, propertyName and valueName
+
+    $$$().update(id, propertyName, valueValue);
+
+Zoom on the screen:
+
+    $$$().zoomExtents();    // Zoom extents
+    $$$().zoom(id, 2.5);    // Zoom with scale
+
+Register an event handler:
+
+    $$$().addEvent("commandEnded", function () {
+    	// Do extra work after the command is ended
+    });
+    
+Remove an event handler:
+
+    $$$().removeEvent("beginQuit");
+
+*AutoCAD/BricsCAD/ZWCAD APIs specific:*
+
+Select all layers in the current AutoCAD/BricsCAD/ZWCAD database:
 
     var layers = $$$("layer");
 
@@ -45,18 +76,16 @@ Run AutoCAD command:
 
     $$$().runCommand("LINE");
     
-Zoom extents:
+*Revit APIs specific:*
 
-    $$$().zoomExtents();
-    
-Register an event handler:
+Get element property names and values
 
-    $$$().addEvent("commandEnded", function () {
-    	// Do extra work after the command is ended
-    });
-    
-Remove an event handler:
+    var sheets = $$$("sheet");   // Get all sheets and return their properties
+    var walls = $$$("wall");    // Get all walls and return their properties
 
-    $$$().removeEvent("beginQuit");
+General syntax with selector:
+
+    var data = $$$("xxx");
+    // xxx : areaScheme, areaTag, cableTray, casework, ceiling, column, communicationDevice, conduit, conduitFitting, curtainSystem, curtainWallMullion, dataDevice, detailComponent, door, ductCurve, ductAccessory, ductFitting, ductInsulation, ductLining, electricalEquipment, electricalFixture, entourage, fireAlarmDevice, flexDuctCurve, flexPipeCurve, floor, furniture, furnitureSystem, genericModel, hvacZone, lightingDevice, lightingFixture, mass, mechanicalEquipment, nurseCallDevice, parking, parts, pipeAccessory, pipeFitting, pipeInsulation, pipeCurve, planting, plumbingFixture, railing, ramp, road, roof, room, roomTag, revitLink, sectionBox, securityDevice, shaftOpening, site, specialityEquipment, sprinkler, stair, structuralColumn, structConnection, fabricArea, fabricReinforcement, structuralFoundation, structuralFraming, pathRein, rebar, structuralStiffener, truss, telephoneDevice, topography, wall, window
 
 More APIs and demos are in development...
