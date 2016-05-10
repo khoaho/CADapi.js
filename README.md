@@ -22,26 +22,26 @@ Get all properties of an entity with its Id:
     
 Select an entity on the screen:
 
-    $$$().select(id);
+    $$$.select(id);
 
 Update an entity with its id, propertyName and valueName
 
-    $$$().update(id, propertyName, valueValue);
+    $$$.update(id, propertyName, valueValue);
 
 Zoom on the screen:
 
-    $$$().zoomExtents();    // Zoom extents
-    $$$().zoom(id, 2.5);    // Zoom with scale
+    $$$.zoomExtents();    // Zoom extents
+    $$$.zoom(id, 2.5);    // Zoom with scale
 
 Register an event handler:
 
-    $$$().addEvent("commandEnded", function () {
+    $$$.addEvent("commandEnded", function () {
     	// Do extra work after the command is ended
     });
     
 Remove an event handler:
 
-    $$$().removeEvent("beginQuit");
+    $$$.removeEvent("beginQuit");
 
 *AutoCAD/BricsCAD/ZWCAD APIs specific:*
 
@@ -74,7 +74,7 @@ Set drawing variables:
 
 Run AutoCAD command:
 
-    $$$().runCommand("LINE");
+    $$$.command("LINE"); // String LINE is case-insensitive
     
 *Revit APIs specific:*
 
@@ -87,5 +87,9 @@ General syntax with selector:
 
     var data = $$$("xxx");
     // xxx : areaScheme, areaTag, cableTray, casework, ceiling, column, communicationDevice, conduit, conduitFitting, curtainSystem, curtainWallMullion, dataDevice, detailComponent, door, ductCurve, ductAccessory, ductFitting, ductInsulation, ductLining, electricalEquipment, electricalFixture, entourage, fireAlarmDevice, flexDuctCurve, flexPipeCurve, floor, furniture, furnitureSystem, genericModel, hvacZone, lightingDevice, lightingFixture, mass, mechanicalEquipment, nurseCallDevice, parking, parts, pipeAccessory, pipeFitting, pipeInsulation, pipeCurve, planting, plumbingFixture, railing, ramp, road, roof, room, roomTag, revitLink, sectionBox, securityDevice, shaftOpening, site, specialityEquipment, sprinkler, stair, structuralColumn, structConnection, fabricArea, fabricReinforcement, structuralFoundation, structuralFraming, pathRein, rebar, structuralStiffener, truss, telephoneDevice, topography, wall, window
+
+Run Revit command:
+
+    $$$.command("ThinLines"); // // String ThinLines is case-insensitive
 
 More APIs and demos are in development...
